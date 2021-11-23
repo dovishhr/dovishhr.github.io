@@ -78,8 +78,8 @@ function editItem(dbId){
     for (i=0;i<data.length;i++){
         if (data[i]['dbid']==dbId){
             editScoreInputField.value = data[i]['score']
-            editFirstNameInputField.value = data[i]['firstName']
-            editLastNameInputField.value = data[i]['lastName']
+            editFirstNameInputField.value = data[i]['firstname']
+            editLastNameInputField.value = data[i]['lastname']
         }
     }
 }
@@ -275,7 +275,7 @@ editButton.onclick = function () {
 };
 
 editSubmitButton.onclick = function () {
-    updateServerData(oneBeingEdited['dbid'],oneBeingEdited['id'],oneBeingEdited['parentId'],editFirstNameInputField.value,editLastNameInputField.value);
+    updateServerData(oneBeingEdited['dbid'],oneBeingEdited['id'],oneBeingEdited['parentid'],editFirstNameInputField.value,editLastNameInputField.value);
     editSwitch();
 };
 
