@@ -43,7 +43,7 @@ function checkLogin(){
         rsp.json().then(dat => {
 			if (rsp.status == 200){
 				data = dat;
-				userName.innerHTML = "hello, "+data["firstName"];
+				userName.innerHTML = "hello, "+data["firstname"];
 				loggedIn = true;
 				document.querySelectorAll('.editButtons').forEach(item => { item.style.display = 'none';});
 				document.querySelector('#editFields').style.display = 'none';
