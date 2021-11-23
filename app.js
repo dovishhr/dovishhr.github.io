@@ -187,7 +187,7 @@ function updateListOChampions(){
         item.appendChild(name);
         item.appendChild(sublis);
         if (data[i].parentId == data[i].id){listOChampions.appendChild(item);}
-        else {document.querySelector('#id'+data[i].parentId).appendChild(item);}
+        else {document.querySelector('#id'+data[i].parentid).appendChild(item);}
         editMode = true;
         editSwitch();
     };
