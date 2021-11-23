@@ -39,7 +39,7 @@ function editSwitch(){
 }
 
 function checkLogin(){
-    fetch("http://127.0.0.1:8080/users", {credentials: "include"}).then(rsp => {
+    fetch("https://dovish.herokuapp.com/users", {credentials: "include"}).then(rsp => {
         rsp.json().then(dat => {
 			if (rsp.status == 200){
 				data = dat;
@@ -89,7 +89,7 @@ function addUser(email,firstName,lastName,password){
     data += "&firstName="+encodeURIComponent(firstName);
     data += "&lastName="+encodeURIComponent(lastName);
     data += "&password="+encodeURIComponent(score);
-    fetch("http://127.0.0.1:8080/users", {
+    fetch("https://dovish.herokuapp.com/users", {
         method: "POST",
         credentials: "include",
         body: data,
@@ -105,7 +105,7 @@ function addToServerData(id,parentId,firstName,lastName,score){
     data += "&firstName="+encodeURIComponent(firstName);
     data += "&lastName="+encodeURIComponent(lastName);
     data += "&score="+encodeURIComponent(score);
-    fetch("http://127.0.0.1:8080/listData", {
+    fetch("https://dovish.herokuapp.com/listData", {
         method: "POST",
         credentials: "include",
         body: data,
@@ -121,7 +121,7 @@ function updateServerData(dbId,id,parentId,firstName,lastName,score){
     data += "&firstName="+encodeURIComponent(firstName);
     data += "&lastName="+encodeURIComponent(lastName);
     data += "&score="+encodeURIComponent(score);
-    fetch(`http://127.0.0.1:8080/listData/${dbId}`, {
+    fetch(`https://dovish.herokuapp.com/listData/${dbId}`, {
         method: "PUT",
         credentials: "include",
         body: data,
@@ -132,14 +132,14 @@ function updateServerData(dbId,id,parentId,firstName,lastName,score){
 }
 
 function deleteItem(dbId){
-    fetch(`http://127.0.0.1:8080/listData/${dbId}`, {method: "DELETE", credentials: "include"}).then(rsp => {
+    fetch(`https://dovish.herokuapp.com/listData/${dbId}`, {method: "DELETE", credentials: "include"}).then(rsp => {
         loadServerData();
     });
 }
 
 function loadServerData(){
 	checkLogin()
-    fetch("http://127.0.0.1:8080/listData", {credentials: "include"}).then(rsp => {
+    fetch("https://dovish.herokuapp.com/listData", {credentials: "include"}).then(rsp => {
         rsp.json().then(dat => {
             data = dat;
             updateConnectionList();
@@ -206,7 +206,7 @@ function login(){
     }
     var data = "email="+encodeURIComponent(email);
     data += "&password="+encodeURIComponent(password);
-    fetch("http://127.0.0.1:8080/sessions", {
+    fetch("https://dovish.herokuapp.com/sessions", {
         method: "POST",
         credentials: "include",
         body: data,
@@ -242,7 +242,7 @@ function register(){
     data += "&password="+encodeURIComponent(password);
     data += "&firstName="+encodeURIComponent(first);
     data += "&lastName="+encodeURIComponent(last);
-    fetch("http://127.0.0.1:8080/users", { 
+    fetch("https://dovish.herokuapp.com/users", { 
     	method: "POST",
         credentials: "include",
         body: data,
